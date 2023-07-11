@@ -4,8 +4,6 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 ![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/c10c073f-6d99-4733-bbba-a43553736055)
 
 
-Sources :
-
 ### Understanding floats and it's representation
 
 - https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html
