@@ -51,9 +51,20 @@ public:
 
 In the example above, `MyClass` is a basic class with an `int` data member called `data`. It follows the Orthodox Canonical Form by implementing the default constructor, the copy constructor, and the copy assignment operator.
 
-- The default constructor initializes the `data` member to a default value (in this case, 0). 
-- The copy constructor initializes a new instance of `MyClass` by copying the `data` value from another instance. 
-- The copy assignment operator assigns the `data` value from another instance to the current instance, checking for self-assignment before making the assignment.
+- **The default constructor initializes the `data` member to a default value (in this case, 0)**.
+  - Responsible for initializing an object of the class when no arguments are provided during its instantiation.
+  - It creates a new instance of the class with default values for its member variables.
+  - In the example code provided earlier, the default constructor of MyClass initializes the data member to 0.  
+- **The copy constructor initializes a new instance of `MyClass` by copying the `data` value from another instance.**
+  - Used to create a new object by making a copy of an existing object of the same class.
+  - It is invoked when an object is being initialized or passed by value.
+  - The copy constructor takes an object reference as a parameter and performs a member-wise copy of the data from the source object to the newly created object.
+  - In the example code, the copy constructor of MyClass copies the data value from the other object to initialize a new instance. 
+- **The copy assignment operator assigns the `data` value from another instance to the current instance, checking for self-assignment before making the assignment.**
+  - The copy assignment operator is used to assign the value of one object to another object of the same class.
+  - It is invoked when an object is being assigned the value of another object using the assignment operator (=).
+  - The copy assignment operator ensures that the assignment is performed correctly and handles self-assignment checks to avoid issues.
+  - In the example code, the copy assignment operator of MyClass assigns the data value from the other object to the current object (*this). 
 
 By implementing these three functions, you ensure that instances of `MyClass` can be constructed, copied, and assigned in a consistent and predictable manner. This allows for proper object construction and manipulation, and also enables the use of standard C++ features like containers and algorithms with your class.
 
