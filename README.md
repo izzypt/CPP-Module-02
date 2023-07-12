@@ -19,9 +19,11 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 In C++, the Orthodox Canonical Form refers to a set of guidelines that define how to properly implement certain features of a class to ensure consistency and maintainability. 
 
 The Orthodox Canonical Form consists of three essential parts that should be implemented for a class: 
-- The default constructor
-- The copy constructor
-- The copy assignment operator
+- **The default constructor**
+- **The copy constructor**
+  - When you pass an object by value as a function argument instead of by reference, the copy constructor is invoked to create a copy of the object.
+  - This is because passing by value requires creating a new instance of the object, and the copy constructor is responsible for performing the copy.  
+- **The copy assignment operator**
 
 Here is an example of implementing the Orthodox Canonical Form for a simple class called `MyClass`:
 
