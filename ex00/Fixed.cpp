@@ -6,7 +6,7 @@
 /*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:42:06 by simao             #+#    #+#             */
-/*   Updated: 2023/07/12 20:46:50 by simao            ###   ########.fr       */
+/*   Updated: 2023/07/12 21:03:01 by simao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 /*
 - Constructor using initialization list.
 */
-Fixed::Fixed() : fixedPointNum(0) {}
+Fixed::Fixed() : fixedPointNum(0) 
+{
+    std::cout << "Default constructor called" << std::endl;
+}
 
 /* 
 - Destructor 
 */
-Fixed::~Fixed() {}
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+}
 
 /*
 - The copy constuctor takes a reference to another class object.
@@ -39,6 +45,7 @@ Fixed::Fixed(const Fixed &obj)
 */
 Fixed &Fixed::operator=(const Fixed &obj)
 {
+    std::cout << "Copy assigment operator called" << std::endl;
     if (this != &obj)
         this->fixedPointNum = obj.fixedPointNum;
         return *this;
@@ -46,6 +53,7 @@ Fixed &Fixed::operator=(const Fixed &obj)
 
 const int Fixed::getRawBits(void)
 {
+    std::cout << "getRawBits member function called" << std::endl;
     return this->fixedPointNum;    
 }
 
