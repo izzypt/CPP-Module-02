@@ -3,7 +3,6 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 
 ![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/c10c073f-6d99-4733-bbba-a43553736055)
 
-
 ### Understanding floats and it's representation
 
 - https://www.cprogramming.com/tutorial/floating_point/understanding_floating_point.html
@@ -12,6 +11,51 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 ### Fixed point Numbers
 
 - https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
+
+
+
+# Orthodox Canonical Form
+
+In C++, the Orthodox Canonical Form refers to a set of guidelines that define how to properly implement certain features of a class to ensure consistency and maintainability. 
+
+The Orthodox Canonical Form consists of three essential parts that should be implemented for a class: 
+- The default constructor
+- The copy constructor
+- The copy assignment operator
+
+Here is an example of implementing the Orthodox Canonical Form for a simple class called `MyClass`:
+
+```cpp
+class MyClass {
+private:
+    int data;
+
+public:
+    // Default constructor
+    MyClass() : data(0) {}
+
+    // Copy constructor
+    MyClass(const MyClass& other) : data(other.data) {}
+
+    // Copy assignment operator
+    MyClass& operator=(const MyClass& other) {
+        if (this != &other) {
+            data = other.data;
+        }
+        return *this;
+    }
+
+    // Other member functions and data members...
+};
+```
+
+In the example above, `MyClass` is a basic class with an `int` data member called `data`. It follows the Orthodox Canonical Form by implementing the default constructor, the copy constructor, and the copy assignment operator.
+
+- The default constructor initializes the `data` member to a default value (in this case, 0). 
+- The copy constructor initializes a new instance of `MyClass` by copying the `data` value from another instance. 
+- The copy assignment operator assigns the `data` value from another instance to the current instance, checking for self-assignment before making the assignment.
+
+By implementing these three functions, you ensure that instances of `MyClass` can be constructed, copied, and assigned in a consistent and predictable manner. This allows for proper object construction and manipulation, and also enables the use of standard C++ features like containers and algorithms with your class.
 
 
 # Float vs Integer
