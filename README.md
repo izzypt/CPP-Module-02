@@ -80,6 +80,56 @@ In the example above, `MyClass` is a basic class with an `int` data member calle
 
 By implementing these three functions, you ensure that instances of `MyClass` can be constructed, copied, and assigned in a consistent and predictable manner. This allows for proper object construction and manipulation, and also enables the use of standard C++ features like containers and algorithms with your class.
 
+# Copy assignment operator
+
+ The default copy assignment operator provided by the compiler performs a member-wise assignment, copying each member of the source object to the corresponding member of the target object. In other words, *the compiler creates a copy assignment operator for us if we haven't done it* 
+ 
+ However, in certain cases, you may need to provide a custom implementation of the copy assignment operator to ensure proper copying behavior or to perform additional actions.
+    
+  Here are a few situations where a custom copy assignment operator might be useful:
+  
+  1. Deep copying: If your class contains dynamically allocated memory or resources, a shallow copy performed by the default copy assignment operator may lead to issues. In such cases, you can define a custom copy assignment operator to perform a deep copy, creating new copies of the dynamically allocated resources.
+  
+  2. Resource management: If your class manages external resources such as file handles, network connections, or locks, a custom copy assignment operator can help properly transfer ownership or handle resource duplication.
+  
+  3. Preventing unwanted copying: In some cases, you may want to disable or restrict the copying of objects of your class. By declaring the copy assignment operator as private and not providing a definition, you can prevent objects from being assigned to one another.
+  
+  Here's an example of a custom copy assignment operator that performs a deep copy:
+    
+    ```cpp
+    class MyClass {
+    private:
+        int* data;
+    
+    public:
+        // Constructor
+        MyClass(int value) {
+            data = new int(value);
+        }
+    
+        // Destructor
+        ~MyClass() {
+            delete data;
+        }
+    
+        // Copy assignment operator
+        MyClass& operator=(const MyClass& other) {
+            if (this != &other) {
+                delete data;
+                data = new int(*other.data);
+            }
+            return *this;
+        }
+    };
+    ```
+    
+  In the above example, the copy assignment operator explicitly deletes the existing `data` and creates a new copy of the `data` from the source object. 
+  
+  This ensures that each object has its own separate copy of the dynamically allocated `data` and prevents issues when one object is modified.
+  
+  It's important to note that when you define a custom copy assignment operator, it is often necessary to also define a custom copy constructor and destructor to properly manage resources and prevent issues like double deletion or resource leaks.
+  
+  Overall, the copy assignment operator allows you to control how objects of your class are assigned and copied, ensuring proper behavior and resource management.
 
 # Float vs Integer
 
