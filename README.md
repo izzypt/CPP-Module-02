@@ -187,3 +187,27 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
 - Fixed-point numbers are useful in situations where precise decimal arithmetic is required but using floating-point numbers is either unnecessary or too expensive in terms of computational resources. They are commonly used in embedded systems, signal processing applications, financial calculations, and other scenarios that involve fixed decimal precision.
 
 - The advantage of fixed-point numbers is that they can be more efficient in terms of memory usage and computational speed compared to floating-point numbers. Fixed-point arithmetic operations can be implemented using regular integer arithmetic, which is typically faster than floating-point arithmetic. However, a trade-off is that fixed-point numbers have a limited range and precision, which must be considered when designing algorithms or performing calculations.
+
+# A reminder on bitwise operators :
+
+Since we will need to manipulate bits in order to build our fixed point number data type, let's have a gentle reminder on the bitwise operators :
+
+The ```&``` operator (bitwise AND): 
+  - Takes two numbers as operands and does AND on every bit of two numbers. The result of AND is 1 only if both bits are
+
+The ```|``` operator (bitwise OR):
+  - Takes two numbers as operands and does OR on every bit of two numbers. The result of OR is 1 if any of the two bits is 1. 
+
+The ```^``` (bitwise XOR):
+  - Takes two numbers as operands and does XOR on every bit of two numbers. The result of XOR is 1 if the two bits are different. 
+
+The ```<<``` (left shift):
+  - Takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+
+The ```>>``` (right shift)
+  - Takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+
+The ```~``` (bitwise NOT)
+  - Takes one number and inverts all bits of it.
+
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/1304211e-612f-48fe-b548-dbdeab951508)
