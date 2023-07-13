@@ -80,6 +80,11 @@ In the example above, `MyClass` is a basic class with an `int` data member calle
 
 By implementing these three functions, you ensure that instances of `MyClass` can be constructed, copied, and assigned in a consistent and predictable manner. This allows for proper object construction and manipulation, and also enables the use of standard C++ features like containers and algorithms with your class.
 
+# Operator Overloading
+
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/5f42d970-4323-491f-88d1-29bd94ad2eab)
+
+
 # Copy assignment operator
 
  The default copy assignment operator provided by the compiler performs a member-wise assignment, copying each member of the source object to the corresponding member of the target object. In other words, *the compiler creates a copy assignment operator for us if we haven't done it* 
