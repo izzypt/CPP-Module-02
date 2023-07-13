@@ -105,32 +105,32 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
   
   Here's an example of a custom copy assignment operator that performs a deep copy:
     
-    ```cpp
-    class MyClass {
-    private:
-        int* data;
-    
-    public:
-        // Constructor
-        MyClass(int value) {
-            data = new int(value);
-        }
-    
-        // Destructor
-        ~MyClass() {
-            delete data;
-        }
-    
-        // Copy assignment operator
-        MyClass& operator=(const MyClass& other) {
-            if (this != &other) {
-                delete data;
-                data = new int(*other.data);
-            }
-            return *this;
-        }
-    };
-    ```
+  ```cpp
+  class MyClass {
+  private:
+      int* data;
+  
+  public:
+      // Constructor
+      MyClass(int value) {
+          data = new int(value);
+      }
+  
+      // Destructor
+      ~MyClass() {
+          delete data;
+      }
+  
+      // Copy assignment operator
+      MyClass& operator=(const MyClass& other) {
+          if (this != &other) {
+              delete data;
+              data = new int(*other.data);
+          }
+          return *this;
+      }
+  };
+  ```
     
   In the above example, the copy assignment operator explicitly deletes the existing `data` and creates a new copy of the `data` from the source object. 
   
