@@ -1,5 +1,14 @@
 # CPP-Module-02
-Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
+Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form.
+
+We are going to discover a new and awesome number
+type: fixed-point numbers! 
+
+fixed-point numbers offer a valuable balance between performance, accuracy, range and
+precision. That explains why fixed-point numbers are particularly applicable to computer
+graphics, sound processing or scientific programming, just to name a few.
+
+As C++ lacks fixed-point numbers, you’re going to add them.
 
 ![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/c10c073f-6d99-4733-bbba-a43553736055)
 
@@ -12,6 +21,7 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 
 - https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
 
+Fixed point is a simple yet very powerful way to represent fractional numbers in computer. By reusing all integer arithmetic circuits of a computer, fixed point arithmetic is orders of magnitude faster than floating point arithmetic. This is the reason why it is being used in many game and DSP applications. On the other hand, it lacks the range and precision that floating point number representation offers. You, as a programmer or circuit designer, must do the tradeoff.
 
 
 # Orthodox Canonical Form
