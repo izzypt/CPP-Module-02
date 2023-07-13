@@ -87,7 +87,8 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
 
 # Copy assignment operator
 
-![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/5011c718-1f14-4b0d-abfb-b386504b1c1c)
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/f5ec205e-8653-4a23-bc47-c637fc698652)
+
 
 
  The default copy assignment operator provided by the compiler performs a member-wise assignment, copying each member of the source object to the corresponding member of the target object. In other words, *the compiler creates a copy assignment operator for us if we haven't done it* 
