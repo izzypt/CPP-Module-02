@@ -5,62 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 11:42:06 by simao             #+#    #+#             */
-/*   Updated: 2023/07/14 23:35:21 by simao            ###   ########.fr       */
+/*   Created: 2023/07/14 23:21:46 by simao             #+#    #+#             */
+/*   Updated: 2023/07/14 23:34:59 by simao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/*
-- Constructor using initialization list.
-*/
 Fixed::Fixed() : fixedPointNum(0) 
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
-/*
-- The copy constuctor takes a reference to another class object.
-- It creates a copy of the referenced object.
-- It is specially usefull when data is passed by value instead of reference.
-*/
 Fixed::Fixed(const Fixed& obj)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     this->fixedPointNum = obj.fixedPointNum;
 }
 
-/*
-- Constructor converting given num to fixed point value.
-*/
 Fixed::Fixed(const int num) 
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     this->fixedPointNum = (num * (1 << Fixed::fractional_bit));
 }
 
-/*
-- Constructor converting given floatcpp to fixed point value.
-*/
 Fixed::Fixed(const float num) 
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->fixedPointNum = roundf(num * (1 << Fixed::fractional_bit));
 }
 
-/* 
-- Destructor 
-*/
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
-/*
-- The copy assignment operator assigns the value from another instance to the current instance
-- It is invoked when an object is being assigned the value of another object using the assignment operator (=).
-*/
 Fixed&  Fixed::operator=(const Fixed& obj)
 {
     std::cout << "Copy assigment operator called" << std::endl;
@@ -94,4 +73,64 @@ std::ostream& operator<<(std::ostream& out, const Fixed &val)
 {
 	out << val.toFloat();
 	return out;
+}
+
+/*
+The 4 increment/decrement (pre-increment and post-increment, pre-decrement and post-decrement) operators
+*/
+Fixed Fixed::operator++()
+{
+	this->fixedPointNum++;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	this->fixedPointNum++;
+	return (tmp);
+}
+
+Fixed Fixed::operator--()
+{
+	this->fixedPointNum--;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	this->fixedPointNum--;
+	return (tmp);
+}
+
+/*
+Limits
+*/
+
+Fixed const &Fixed::max(Fixed const &one, Fixed const &two)
+{
+	if (one.toFloat() > two.toFloat())
+		return (one);
+	return(two);
+}
+Fixed const &Fixed::min(Fixed const &one, Fixed const &two)
+{
+	if (one.toFloat() > two.toFloat())
+		return (two);
+	return(one);
+}
+
+Fixed& Fixed::max(Fixed &one, Fixed &two)
+{
+	if (one.toFloat() > two.toFloat())
+		return (one);
+	return(two);
+}
+
+Fixed& Fixed::min(Fixed &one, Fixed &two)
+{
+	if (one.toFloat() > two.toFloat())
+		return (two);
+	return(one);
 }
