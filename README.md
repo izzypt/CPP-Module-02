@@ -1,5 +1,19 @@
 # CPP-Module-02
-Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
+
+### Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form.
+
+------------------------------------------------------------------------------------------
+
+We are going to discover a new and awesome number
+type: fixed-point numbers! 
+
+Fixed-point numbers offer a valuable balance between performance, accuracy, range and
+precision. 
+
+That explains why fixed-point numbers are particularly applicable to computer
+graphics, sound processing or scientific programming, just to name a few.
+
+As C++ lacks fixed-point numbers, you’re going to add them.
 
 ![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/c10c073f-6d99-4733-bbba-a43553736055)
 
@@ -12,6 +26,11 @@ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form
 
 - https://inst.eecs.berkeley.edu//~cs61c/sp06/handout/fixedpt.html
 
+- Fixed point is a simple yet very powerful way to represent fractional numbers in computer. 
+
+- By reusing all integer arithmetic circuits of a computer, fixed point arithmetic is orders of magnitude faster than floating point arithmetic. 
+
+- This is the reason why it is being used in many game and DSP applications. On the other hand, it lacks the range and precision that floating point number representation offers. You, as a programmer or circuit designer, must do the tradeoff.
 
 
 # Orthodox Canonical Form
@@ -80,7 +99,16 @@ In the example above, `MyClass` is a basic class with an `int` data member calle
 
 By implementing these three functions, you ensure that instances of `MyClass` can be constructed, copied, and assigned in a consistent and predictable manner. This allows for proper object construction and manipulation, and also enables the use of standard C++ features like containers and algorithms with your class.
 
+# Operator Overloading
+
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/5f42d970-4323-491f-88d1-29bd94ad2eab)
+
+
 # Copy assignment operator
+
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/f5ec205e-8653-4a23-bc47-c637fc698652)
+
+
 
  The default copy assignment operator provided by the compiler performs a member-wise assignment, copying each member of the source object to the corresponding member of the target object. In other words, *the compiler creates a copy assignment operator for us if we haven't done it* 
  
@@ -96,32 +124,32 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
   
   Here's an example of a custom copy assignment operator that performs a deep copy:
     
-    ```cpp
-    class MyClass {
-    private:
-        int* data;
-    
-    public:
-        // Constructor
-        MyClass(int value) {
-            data = new int(value);
-        }
-    
-        // Destructor
-        ~MyClass() {
-            delete data;
-        }
-    
-        // Copy assignment operator
-        MyClass& operator=(const MyClass& other) {
-            if (this != &other) {
-                delete data;
-                data = new int(*other.data);
-            }
-            return *this;
-        }
-    };
-    ```
+  ```cpp
+  class MyClass {
+  private:
+      int* data;
+  
+  public:
+      // Constructor
+      MyClass(int value) {
+          data = new int(value);
+      }
+  
+      // Destructor
+      ~MyClass() {
+          delete data;
+      }
+  
+      // Copy assignment operator
+      MyClass& operator=(const MyClass& other) {
+          if (this != &other) {
+              delete data;
+              data = new int(*other.data);
+          }
+          return *this;
+      }
+  };
+  ```
     
   In the above example, the copy assignment operator explicitly deletes the existing `data` and creates a new copy of the `data` from the source object. 
   
@@ -159,3 +187,27 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
 - Fixed-point numbers are useful in situations where precise decimal arithmetic is required but using floating-point numbers is either unnecessary or too expensive in terms of computational resources. They are commonly used in embedded systems, signal processing applications, financial calculations, and other scenarios that involve fixed decimal precision.
 
 - The advantage of fixed-point numbers is that they can be more efficient in terms of memory usage and computational speed compared to floating-point numbers. Fixed-point arithmetic operations can be implemented using regular integer arithmetic, which is typically faster than floating-point arithmetic. However, a trade-off is that fixed-point numbers have a limited range and precision, which must be considered when designing algorithms or performing calculations.
+
+# A reminder on bitwise operators :
+
+Since we will need to manipulate bits in order to build our fixed point number data type, let's have a gentle reminder on the bitwise operators :
+
+The ```&``` operator (bitwise AND): 
+  - Takes two numbers as operands and does AND on every bit of two numbers. The result of AND is 1 only if both bits are
+
+The ```|``` operator (bitwise OR):
+  - Takes two numbers as operands and does OR on every bit of two numbers. The result of OR is 1 if any of the two bits is 1. 
+
+The ```^``` (bitwise XOR):
+  - Takes two numbers as operands and does XOR on every bit of two numbers. The result of XOR is 1 if the two bits are different. 
+
+The ```<<``` (left shift):
+  - Takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+
+The ```>>``` (right shift)
+  - Takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+
+The ```~``` (bitwise NOT)
+  - Takes one number and inverts all bits of it.
+
+![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/1304211e-612f-48fe-b548-dbdeab951508)
