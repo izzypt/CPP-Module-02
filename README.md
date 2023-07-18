@@ -159,6 +159,94 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
   
   Overall, the copy assignment operator allows you to control how objects of your class are assigned and copied, ensuring proper behavior and resource management.
 
+# Shallow Copy vs Deep Copy
+
+1. Shallow Copy:
+   
+- A shallow copy is a copy that simply duplicates the memory address of the source object's data to the target object.
+- This means that both the source and target objects will point to the same memory location.
+- In other words, the copy only copies the memory addresses, not the data itself. If the original object is modified, the shallow copy will also be affected since they share the same data.
+
+  ```cpp
+  #include <iostream>
+  
+  class ShallowCopyExample {
+  public:
+      int* data;
+  
+      ShallowCopyExample(int value) {
+          data = new int(value);
+      }
+  
+      // Shallow copy constructor
+      ShallowCopyExample(const ShallowCopyExample& other) : data(other.data) {}
+  
+      ~ShallowCopyExample() {
+          delete data;
+      }
+  };
+  
+  int main() {
+      ShallowCopyExample original(42);
+      ShallowCopyExample shallowCopy(original);
+  
+      std::cout << *original.data << std::endl;       // Output: 42
+      std::cout << *shallowCopy.data << std::endl;   // Output: 42
+  
+      // Modify the data through the shallow copy
+      *shallowCopy.data = 100;
+  
+      std::cout << *original.data << std::endl;       // Output: 100 (changed)
+      std::cout << *shallowCopy.data << std::endl;   // Output: 100 (changed)
+  
+      return 0;
+  }
+  ```
+
+2. Deep Copy:
+- A deep copy, on the other hand, involves creating a completely new copy of the source object's data in a separate memory location.
+- This means that the target object has its own distinct memory and is independent of the source object.
+- Modifying the data in the target object will not affect the original object or any other deep copies.
+
+  ```cpp
+  #include <iostream>
+  
+  class DeepCopyExample {
+  public:
+      int* data;
+  
+      DeepCopyExample(int value) {
+          data = new int(value);
+      }
+  
+      // Deep copy constructor
+      DeepCopyExample(const DeepCopyExample& other) : data(new int(*other.data)) {}
+  
+      ~DeepCopyExample() {
+          delete data;
+      }
+  };
+  
+  int main() {
+      DeepCopyExample original(42);
+      DeepCopyExample deepCopy(original);
+  
+      std::cout << *original.data << std::endl;       // Output: 42
+      std::cout << *deepCopy.data << std::endl;      // Output: 42
+  
+      // Modify the data through the deep copy
+      *deepCopy.data = 100;
+  
+      std::cout << *original.data << std::endl;       // Output: 42 (unchanged)
+      std::cout << *deepCopy.data << std::endl;      // Output: 100 (changed)
+  
+      return 0;
+  }
+  ```
+
+In summary, a shallow copy simply copies the memory address, resulting in multiple pointers pointing to the same data, while a deep copy creates a completely independent copy of the data. The choice between shallow and deep copy depends on the specific requirements and the nature of the objects being manipulated in your C++ program.
+
+
 # Float vs Integer
 
 - Bits representing an integer are interpreted literally as a binary number, while bits in a floating point number have a more complicated interpretation. 
