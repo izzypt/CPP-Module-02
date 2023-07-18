@@ -161,7 +161,7 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
 
 # Shallow Copy vs Deep Copy
 
-1. Shallow Copy:
+### Shallow Copy:
    
 - A shallow copy is a copy that simply duplicates the memory address of the source object's data to the target object.
 - This means that both the source and target objects will point to the same memory location.
@@ -203,7 +203,7 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
   }
   ```
 
-2. Deep Copy:
+### Deep Copy:
 - A deep copy, on the other hand, involves creating a completely new copy of the source object's data in a separate memory location.
 - This means that the target object has its own distinct memory and is independent of the source object.
 - Modifying the data in the target object will not affect the original object or any other deep copies.
