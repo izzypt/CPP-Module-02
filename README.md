@@ -244,7 +244,7 @@ By implementing these three functions, you ensure that instances of `MyClass` ca
   }
   ```
 
-In summary, a shallow copy simply copies the memory address, resulting in multiple pointers pointing to the same data, while a deep copy creates a completely independent copy of the data. The choice between shallow and deep copy depends on the specific requirements and the nature of the objects being manipulated in your C++ program.
+In summary, a shallow copy simply copies the memory address, resulting in multiple pointers pointing to the same data, while a deep copy creates a completely independent copy of the data.
 
 
 # Float vs Integer
