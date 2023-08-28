@@ -299,3 +299,53 @@ The ```~``` (bitwise NOT)
   - Takes one number and inverts all bits of it.
 
 ![image](https://github.com/izzypt/CPP-Module-02/assets/73948790/1304211e-612f-48fe-b548-dbdeab951508)
+
+
+Shifting an integer to the right by 1 bit position is equivalent to dividing the number by 2. 
+
+In general, mathematically, given a fixed binary point position, shifting the bit pattern of a number to the right by 1 bit always divide the number by 2. Similarly, shifting a number to the left by 1 bit multiplies the number by 2.
+
+# Fixed Point Number Representation
+
+The shifting process above is the key to understand fixed point number representation. 
+
+To represent a real number in computers (or any hardware in general), ***we can define a fixed point number type simply by implicitly fixing the binary point to be at some position of a numeral***. We will then simply adhere to this implicit convention when we represent numbers.
+
+To define a fixed point type conceptually, all we need are two parameters:
+
+- width of the number representation
+- binary point position within the number
+
+We will use the notation ```fixed<w,b>``` for the rest of this article, where ```w``` denotes the number of bits used as a whole (the Width of a number), and ```b``` denotes the position of binary point counting from the least significant bit (counting from 0).
+
+For example, fixed<8,3> denotes a 8-bit fixed point number, of which 3 right most bits are fractional. Therefore, the bit pattern:
+```
+0	0	0	1	0	1	1	0
+```
+represents a real number:
+```
+00010.1102
+= 1 * 21 + 1 * 2-1 + 1 * 2-1
+
+= 2 + 0.5 + 0.25
+
+= 2.75
+```
+Note that on a computer, a bit patter can represents anything. Therefore the same bit pattern, if we "cast" it to another type, such as a fixed<8,5> type, will represents the number:
+```
+000.101102
+= 1 * 2-1 + 1 * 2-3 + 1 * 2-4
+
+= 0.5 + 0.125 + 0.0625
+
+= 0.6875
+```
+If we treat this bit patter as integer, it represents the number:
+```
+101102
+= 1 * 24 + 1 * 22 + 1 * 21
+
+= 16 + 4 + 2
+
+= 22
+```
