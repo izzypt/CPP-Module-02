@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smagalha <smagalha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:42:06 by simao             #+#    #+#             */
-/*   Updated: 2023/07/14 23:35:21 by simao            ###   ########.fr       */
+/*   Updated: 2023/08/28 16:56:57 by smagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed() : fixedPointNum(0)
 Fixed::Fixed(const Fixed& obj)
 {
     std::cout << "Copy constructor called" << std::endl;
-    this->fixedPointNum = obj.fixedPointNum;
+    *this = obj;
 }
 
 /*

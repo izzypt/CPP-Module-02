@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smagalha <smagalha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:42:06 by simao             #+#    #+#             */
-/*   Updated: 2023/07/13 14:11:51 by simao            ###   ########.fr       */
+/*   Updated: 2023/08/28 16:17:39 by smagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Fixed&  Fixed::operator=(const Fixed& obj)
     return *this;
 }
 
-const int Fixed::getRawBits(void)
+int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return this->fixedPointNum;    

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smagalha <smagalha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:42:10 by simao             #+#    #+#             */
-/*   Updated: 2023/07/12 20:48:23 by simao            ###   ########.fr       */
+/*   Updated: 2023/08/28 16:13:07 by smagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Fixed
         Fixed(const Fixed &obj); // copy constructor
         Fixed &operator=(const Fixed &obj); // assignment operator
         ~Fixed(); // destructor
-        const int   getRawBits( void );
+        int   getRawBits( void ) const;
         void        setRawBits( int const raw );
 };
 

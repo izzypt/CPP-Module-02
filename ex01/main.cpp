@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simao <simao@student.42.fr>                +#+  +:+       +#+        */
+/*   By: smagalha <smagalha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:42:02 by simao             #+#    #+#             */
-/*   Updated: 2023/07/14 01:29:35 by simao            ###   ########.fr       */
+/*   Updated: 2023/08/28 16:45:58 by smagalha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int main(int argc, char **argv)
 {
+    (void)argc;
+    (void)argv;
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
